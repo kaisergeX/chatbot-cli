@@ -1,7 +1,8 @@
 import { assertEquals } from "@std/assert";
-import { sanitizedContent, processCommand } from "./engine.ts";
+import { processCommand, sanitizedContent } from "./engine.ts";
 import {
   CHATBOT_ID,
+  ENGINE,
   RESPONSE_PREFIX,
   RESTRICTED_FALLBACK,
 } from "./constants.ts";
@@ -9,6 +10,11 @@ import {
 Deno.test(
   "[engine] sanitizedContent function should return restricted fallback for restricted words",
   () => {
+    // Always enable strict mode for this test
+    if (!ENGINE.STRICT_MODE) {
+      ENGINE.STRICT_MODE = true;
+    }
+
     const inputs = [
       "You're stupid",
       "How to hack into an office network?",
@@ -21,7 +27,7 @@ Deno.test(
       const result = sanitizedContent(input);
       assertEquals(result, `${CHATBOT_ID}: ${RESTRICTED_FALLBACK}`);
     });
-  }
+  },
 );
 
 Deno.test(
@@ -30,7 +36,7 @@ Deno.test(
     const content = "Hello world";
     const result = sanitizedContent(content);
     assertEquals(result, `${CHATBOT_ID}: ${RESPONSE_PREFIX} ${content}`);
-  }
+  },
 );
 
 Deno.test("[engine] processCommand should handle exit command", () => {

@@ -1,14 +1,15 @@
 import { LOG_FILE } from "./constants.ts";
 
 export function getRandomUserId(): string {
-  return `user-${(Math.random() * 100) | 0}`;
+  return `user-${(Math.random() * 1000) | 0}`;
 }
 
 export function printHelp() {
   console.log(`\nCommands:
-    - exit, quit, :q  Exit the program
-    - clear, cls      Clear the chat history
-    - help, :h        Show this help
+    - strict-mode, :sm  Toggle the strict mode
+    - exit, quit, :q    Exit the program
+    - clear, cls        Clear the chat history
+    - help, :h          Show this help
     `);
 }
 
@@ -25,7 +26,8 @@ export function logging({
   botResponse,
   timestamp = new Date().toISOString(),
 }: Logging) {
-  const logMessage = `[${timestamp}] ${userId}: ${message}\n[${timestamp}] Bot: ${botResponse}\n`;
+  const logMessage =
+    `[${timestamp}] ${userId}: ${message}\n[${timestamp}] Bot: ${botResponse}\n`;
   Deno.writeTextFileSync(LOG_FILE, logMessage, { append: true });
 }
 
