@@ -15,15 +15,16 @@ Deno</sup>
 
 ## Don't wanna setup anything?
 
-If you use MacOS (ARM64), run the pre-compiled standalone executable file
-inside [exec folder](./exec/).
+If you use MacOS (ARM64), run the pre-compiled standalone executable file inside
+[exec folder](./exec/).
 
 ## Development
 
 ### Runtime
 
-Please ensure your device has [<img src="https://deno.land/logo.svg" height="15px" alt="the deno mascot dinosaur standing in the rain">Deno](https://deno.land/) installed. If not,
-follow
+Please ensure your device has
+[<img src="https://deno.land/logo.svg" height="15px" alt="the deno mascot dinosaur standing in the rain">Deno](https://deno.land/)
+installed. If not, follow
 [the official guide](https://docs.deno.com/runtime/getting_started/installation/)
 for a quick installation.
 
