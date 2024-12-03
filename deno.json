@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts",
+    "dev": "deno run --allow-write main.ts",
     "compile": "deno compile --allow-write --output exec/chatbot main.ts",
     "compile:window": "deno compile --allow-write --output exec/chatbot-window --target x86_64-pc-windows-msvc main.ts"
   },
