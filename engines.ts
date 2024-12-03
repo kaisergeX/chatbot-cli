@@ -1,23 +1,26 @@
 import { profanity } from "npm:@2toad/profanity";
 import Fuse from "npm:fuse.js";
 import {
+  CHATBOT_ID,
   RESPONSE_PREFIX,
   RESTRICTED_FALLBACK,
   RESTRICTED_WORDS,
 } from "./constants.ts";
-import { getRandomUserId, printHelp } from "./utils.ts";
+import { getRandomUserId, logging, printHelp } from "./utils.ts";
+
+let userId = "";
 
 // Create a new Fuse instance with the restricted words
 const fuse = new Fuse(RESTRICTED_WORDS, {
   minMatchCharLength: 2,
 });
 
-function sanitizedContent(content: string): string {
-  if (fuse.search(content).length || profanity.exists(content)) {
-    return RESTRICTED_FALLBACK;
+export function sanitizedContent(content: string): string {
+  if (profanity.exists(content) || fuse.search(content).length) {
+    return `${CHATBOT_ID}: ${RESTRICTED_FALLBACK}`;
   }
 
-  return `${RESPONSE_PREFIX} ${content}`;
+  return `${CHATBOT_ID}: ${RESPONSE_PREFIX} ${content}`;
 }
 
 /**
@@ -32,6 +35,7 @@ function processCommand(command: string): boolean {
     case "quit":
     case ":q": {
       console.log("Goodbye!");
+      logging({ userId, message: "exit", botResponse: "Goodbye!" });
       Deno.exit(0);
       break;
     }
@@ -56,9 +60,10 @@ function processCommand(command: string): boolean {
 }
 
 export function runChatEngine() {
-  profanity.addWords(RESTRICTED_WORDS);
+  userId = getRandomUserId();
+
+  // profanity.addWords(RESTRICTED_WORDS);
   printHelp();
-  const userId = getRandomUserId();
 
   while (true) {
     console.log("\nUser ID:", userId);
@@ -75,6 +80,7 @@ export function runChatEngine() {
     }
 
     const filteredContent = sanitizedContent(userInput);
-    console.log("\nChatbot:", filteredContent, "\n\n---------------------");
+    console.log("\n", filteredContent, "\n\n---------------------");
+    logging({ userId, message: userInput, botResponse: filteredContent });
   }
 }

@@ -34,8 +34,6 @@ deno install
 
 ### Dev server
 
-Start server in watch mode:
-
 ```console
 deno run dev
 ```
