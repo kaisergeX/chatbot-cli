@@ -15,14 +15,14 @@ Deno</sup>
 
 ## Don't wanna setup anything?
 
-If you use MmacOS (ARM64), run the pre-compiled standalone executable file
+If you use MacOS (ARM64), run the pre-compiled standalone executable file
 inside [exec folder](./exec/).
 
 ## Development
 
 ### Runtime
 
-Please ensure your device has [Deno](https://deno.land/) installed. If not,
+Please ensure your device has [<img src="https://deno.land/logo.svg" height="15px" alt="the deno mascot dinosaur standing in the rain">Deno](https://deno.land/) installed. If not,
 follow
 [the official guide](https://docs.deno.com/runtime/getting_started/installation/)
 for a quick installation.
@@ -70,7 +70,7 @@ deno run test
 OR
 
 ```console
-deno test --allow-env
+deno test -R --allow-env
 ```
 
 ## Compile standalone executables
