@@ -2,6 +2,7 @@ import { profanity } from "npm:@2toad/profanity";
 import Fuse from "npm:fuse.js";
 import {
   CHATBOT_ID,
+  ENGINE,
   RESPONSE_PREFIX,
   RESTRICTED_FALLBACK,
   RESTRICTED_WORDS,
@@ -13,13 +14,18 @@ profanity.addWords(RESTRICTED_WORDS);
 // Create a new Fuse instance with the restricted words
 const fuse = new Fuse(RESTRICTED_WORDS, {
   minMatchCharLength: 2,
-  threshold: 0.3,
+  threshold: 0.5,
 });
 
 export function sanitizedContent(content: string): string {
+  if (profanity.exists(content)) {
+    return `${CHATBOT_ID}: ${RESTRICTED_FALLBACK}`;
+  }
+
   if (
-    profanity.exists(content) ||
-    content.split(/\s+/).some((word) => fuse.search(word).length > 0)
+    ENGINE.STRICT_MODE &&
+    (fuse.search(content).length ||
+      content.split(/\s+/).some((word) => fuse.search(word).length > 0))
   ) {
     return `${CHATBOT_ID}: ${RESTRICTED_FALLBACK}`;
   }
@@ -35,6 +41,26 @@ export function sanitizedContent(content: string): string {
  */
 export function processCommand(userId: string, command: string): boolean {
   switch (command) {
+    case "strict-mode":
+    case ":sm": {
+      if (ENGINE.STRICT_MODE) {
+        const turnedOffStrictMode = confirm(
+          "Are you sure you want to disable strict mode?",
+        );
+
+        if (turnedOffStrictMode) {
+          ENGINE.STRICT_MODE = false;
+          console.log(
+            "\x1b[41m\x1b[37m%s\x1b[0m",
+            "Strict mode is turned off!",
+          );
+        }
+      } else {
+        ENGINE.STRICT_MODE = true;
+        console.log("\x1b[42m\x1b[37m%s\x1b[0m", "Strict mode is turned on!");
+      }
+      break;
+    }
     case "exit":
     case "quit":
     case ":q": {

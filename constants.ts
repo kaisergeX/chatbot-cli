@@ -1,15 +1,12 @@
+import "@std/dotenv/load";
 export const LOG_FILE = "chatbot_log.txt";
 
-export const RESTRICTED_WORDS = [
-  "hack",
-  "hacking",
-  "scam",
-  "scamming",
-  "cheat",
-  "cheating",
-  "plagiarism",
-  "stupid",
-];
+export const ENGINE = {
+  STRICT_MODE: Deno.env.get("ENGINE_STRICT_MODE") === "off" ? false : true,
+};
+
+export const RESTRICTED_WORDS = Deno.env.get("RESTRICTED_WORDS")?.split(",") ||
+  [];
 
 export const RESTRICTED_FALLBACK =
   "I'm sorry, but I can't assist with that request.";

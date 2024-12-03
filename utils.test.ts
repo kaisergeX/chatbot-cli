@@ -7,7 +7,8 @@ Deno.test("[utils] logging function should write correct log message", () => {
   const message = "Hello",
     botResponse = message;
   const timestamp = new Date().toISOString();
-  const expectedLogMessage = `[${timestamp}] ${userId}: ${message}\n[${timestamp}] Bot: ${botResponse}\n`;
+  const expectedLogMessage =
+    `[${timestamp}] ${userId}: ${message}\n[${timestamp}] Bot: ${botResponse}\n`;
 
   let writtenLogMessage = "";
   const originalWriteTextFileSync = Deno.writeTextFileSync;

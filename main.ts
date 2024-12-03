@@ -1,8 +1,21 @@
+import { ENGINE, RESTRICTED_WORDS } from "./constants.ts";
 import { processCommand, sanitizedContent } from "./engine.ts";
-import { getRandomUserId, printHelp, logging } from "./utils.ts";
+import { getRandomUserId, logging, printHelp } from "./utils.ts";
+
+function greeting() {
+  if (ENGINE.STRICT_MODE) {
+    console.log("\x1b[42m\x1b[37m%s\x1b[0m", "strict mode");
+  } else {
+    console.log("\x1b[43m\x1b[37m%s\x1b[0m", "strict mode is off");
+  }
+
+  console.log("\nWelcome to SafeChat!\n---------------------");
+}
 
 function main() {
-  console.log("Welcome to SafeChat!\n---------------------");
+  console.log("Restricted words:", RESTRICTED_WORDS);
+
+  greeting();
   printHelp();
 
   const userId = getRandomUserId();

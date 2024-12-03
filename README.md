@@ -7,24 +7,39 @@ adhering to advanced safety guidelines to prevent disallowed content from being 
 generated.
 </p>
 
-<sup>Built with <img src="https://deno.land/logo.svg" height="15px" alt="the deno mascot dinosaur standing in the rain"> Deno</sup>
+<sup>Built with
+<img src="https://deno.land/logo.svg" height="15px" alt="the deno mascot dinosaur standing in the rain">
+Deno</sup>
 
 </div>
 
 ## Don't wanna setup anything?
 
-If you use MacOS (ARM64), run the pre-compiled standalone executable file inside [exec folder](./exec/).
+If you use MmacOS (ARM64), run the pre-compiled standalone executable file
+inside [exec folder](./exec/).
 
-## Environment
+## Development
 
-Please ensure your device has Deno installed. If not, follow [the official guide](https://docs.deno.com/runtime/getting_started/installation/) for a quick installation.
+### Runtime
 
-## Local development
+Please ensure your device has [Deno](https://deno.land/) installed. If not,
+follow
+[the official guide](https://docs.deno.com/runtime/getting_started/installation/)
+for a quick installation.
 
 ### Setting up your editor/IDE
 
-- VSCode: Install the official [Deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
-- Other editor/IDE: please follow the [setup your environment](https://docs.deno.com/runtime/getting_started/setup_your_environment/#setting-up-your-editor%2Fide) guide.
+- VSCode: Install the official
+  [Deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
+- Other editor/IDE: please follow the
+  [setup your environment](https://docs.deno.com/runtime/getting_started/setup_your_environment/#setting-up-your-editor%2Fide)
+  guide.
+
+### Environment variables
+
+```console
+cp .env.example .env
+```
 
 ### Dev server
 
@@ -49,7 +64,13 @@ deno lint
 ### Test
 
 ```console
-deno test
+deno run test
+```
+
+OR
+
+```console
+deno test --allow-env
 ```
 
 ## Compile standalone executables
