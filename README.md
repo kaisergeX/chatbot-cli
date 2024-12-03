@@ -7,7 +7,7 @@ adhering to advanced safety guidelines to prevent disallowed content from being 
 generated.
 </p>
 
-Powered by <img src="https://deno.land/logo.svg" height="20px" alt="the deno mascot dinosaur standing in the rain"> Deno
+<sup>Built with <img src="https://deno.land/logo.svg" height="15px" alt="the deno mascot dinosaur standing in the rain"> Deno</sup>
 
 </div>
 
@@ -19,12 +19,6 @@ You can just run the standalone executable file inside [exec folder](./exec/).
 
 Please ensure your device has Deno installed. If not, follow [the official guide](https://docs.deno.com/runtime/getting_started/installation/) for a quick installation.
 
-## Installation
-
-```console
-deno install
-```
-
 ## Local development
 
 ### Setting up your editor/IDE
@@ -33,6 +27,8 @@ deno install
 - Other editor/IDE: please follow the [setup your environment](https://docs.deno.com/runtime/getting_started/setup_your_environment/#setting-up-your-editor%2Fide) guide.
 
 ### Dev server
+
+<sup>_Note_: These commands also install all necessary packages.</sup>
 
 ```console
 deno run dev
