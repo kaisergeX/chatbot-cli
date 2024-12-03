@@ -1,4 +1,4 @@
-import { ENGINE, RESTRICTED_WORDS } from "./constants.ts";
+import { ENGINE } from "./constants.ts";
 import { processCommand, sanitizedContent } from "./engine.ts";
 import { getRandomUserId, logging, printHelp } from "./utils.ts";
 
@@ -13,8 +13,6 @@ function greeting() {
 }
 
 function main() {
-  console.log("Restricted words:", RESTRICTED_WORDS);
-
   greeting();
   printHelp();
 

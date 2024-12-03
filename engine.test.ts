@@ -23,7 +23,6 @@ Deno.test(
     ];
 
     inputs.forEach((input) => {
-      console.log("Input:", input);
       const result = sanitizedContent(input);
       assertEquals(result, `${CHATBOT_ID}: ${RESTRICTED_FALLBACK}`);
     });
@@ -46,7 +45,6 @@ Deno.test("[engine] processCommand should handle exit command", () => {
   try {
     processCommand("user-1", command);
   } catch (_) {
-    console.log("Exit called");
     exitCalled = true;
   }
 

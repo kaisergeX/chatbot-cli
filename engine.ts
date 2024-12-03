@@ -43,6 +43,7 @@ export function processCommand(userId: string, command: string): boolean {
   switch (command) {
     case "strict-mode":
     case ":sm": {
+      const msg = "Strict mode is turned ";
       if (ENGINE.STRICT_MODE) {
         const turnedOffStrictMode = confirm(
           "Are you sure you want to disable strict mode?",
@@ -50,14 +51,11 @@ export function processCommand(userId: string, command: string): boolean {
 
         if (turnedOffStrictMode) {
           ENGINE.STRICT_MODE = false;
-          console.log(
-            "\x1b[41m\x1b[37m%s\x1b[0m",
-            "Strict mode is turned off!",
-          );
+          console.log("\x1b[41m\x1b[37m%s\x1b[0m", msg + "off!");
         }
       } else {
         ENGINE.STRICT_MODE = true;
-        console.log("\x1b[42m\x1b[37m%s\x1b[0m", "Strict mode is turned on!");
+        console.log("\x1b[42m\x1b[37m%s\x1b[0m", msg + "on!");
       }
       break;
     }
