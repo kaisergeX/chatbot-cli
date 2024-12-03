@@ -1,0 +1,44 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@std/assert@1": "1.0.8",
+    "jsr:@std/internal@^1.0.5": "1.0.5",
+    "npm:@2toad/profanity@*": "3.0.1",
+    "npm:@2toad/profanity@^3.0.1": "3.0.1",
+    "npm:fuse.js@*": "7.0.0",
+    "npm:fuse.js@7": "7.0.0"
+  },
+  "jsr": {
+    "@std/assert@1.0.8": {
+      "integrity": "ebe0bd7eb488ee39686f77003992f389a06c3da1bbd8022184804852b2fa641b",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.5": {
+      "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
+    }
+  },
+  "npm": {
+    "@2toad/profanity@3.0.1": {
+      "integrity": "sha512-WqAljnXnxsdUmwJT2VDTHZ6IAMgktnobLtBSdGFQYFLB1kh7q+QqzpxY4rRAWU4lSYvGUykJ+xv5wJ3IZYBuzQ=="
+    },
+    "fuse.js@7.0.0": {
+      "integrity": "sha512-14F4hBIxqKvD4Zz/XjDc3y94mNZN6pRv3U13Udo0lNLCWRBUsrMv2xwcF/y/Z5sV6+FQW+/ow68cHpm4sunt8Q=="
+    }
+  },
+  "redirects": {
+    "https://deno.land/std/http/server.ts": "https://deno.land/std@0.224.0/http/server.ts"
+  },
+  "remote": {
+    "https://deno.land/std@0.224.0/async/delay.ts": "f90dd685b97c2f142b8069082993e437b1602b8e2561134827eeb7c12b95c499",
+    "https://deno.land/std@0.224.0/http/server.ts": "f9313804bf6467a1704f45f76cb6cd0a3396a3b31c316035e6a4c2035d1ea514"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@1",
+      "npm:@2toad/profanity@^3.0.1",
+      "npm:fuse.js@7"
+    ]
+  }
+}

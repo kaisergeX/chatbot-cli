@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "compile": "deno compile --allow-write --output exec/chatbot main.ts",
+    "compile:window": "deno compile --allow-write --output exec/chatbot-window --target x86_64-pc-windows-msvc main.ts"
+  },
+  "imports": {
+    "@2toad/profanity": "npm:@2toad/profanity@^3.0.1",
+    "@std/assert": "jsr:@std/assert@1",
+    "fuse.js": "npm:fuse.js@^7.0.0"
+  }
+}
