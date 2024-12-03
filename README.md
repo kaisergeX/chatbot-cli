@@ -13,7 +13,7 @@ generated.
 
 ## Don't wanna setup anything?
 
-You can just run the standalone executable file inside [exec folder](./exec/).
+If you use MacOS (ARM64), run the pre-compiled standalone executable file inside [exec folder](./exec/).
 
 ## Environment
 

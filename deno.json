@@ -1,7 +1,7 @@
 {
   "tasks": {
     "dev": "deno run --allow-write main.ts",
-    "compile": "deno compile --allow-write --output exec/chatbot main.ts",
+    "compile": "deno compile --allow-write --output exec/chatbot --target aarch64-apple-darwin main.ts",
     "compile:window": "deno compile --allow-write --output exec/chatbot-window --target x86_64-pc-windows-msvc main.ts"
   },
   "imports": {
