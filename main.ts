@@ -1,6 +1,6 @@
 import { ENGINE } from "./constants.ts";
 import { processCommand, sanitizedContent } from "./engine.ts";
-import { getRandomUserId, logging, printHelp } from "./utils.ts";
+import { logging, printHelp } from "./utils.ts";
 
 function greeting() {
   if (ENGINE.STRICT_MODE) {
@@ -16,7 +16,17 @@ function main() {
   greeting();
   printHelp();
 
-  const userId = getRandomUserId();
+  // const userId = getRandomUserId();
+  let userId = "";
+  while (true) {
+    const id = prompt("Please input your ID:");
+    if (id) {
+      userId = id;
+      break;
+    }
+
+    console.log("User ID is required!");
+  }
 
   while (true) {
     console.log("\nUser ID:", userId);
