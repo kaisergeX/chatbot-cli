@@ -86,3 +86,7 @@ export function processCommand(userId: string, command: string): boolean {
 
   return true;
 }
+
+export function isRateLimited(): boolean {
+  return false;
+}
