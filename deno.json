@@ -1,14 +1,15 @@
 {
   "tasks": {
-    "dev": "deno run -R -W --allow-env main.ts",
+    "dev": "deno run -R -W --allow-env --allow-sys='osRelease' main.ts",
     "test": "deno test -R --allow-env",
-    "compile": "deno compile -R -W --allow-env --env --output exec/chatbot --target aarch64-apple-darwin main.ts",
-    "compile:window": "deno compile -R -W --allow-env --env --output exec/chatbot-window --target x86_64-pc-windows-msvc main.ts"
+    "compile": "deno compile -R -W --allow-env --allow-sys='osRelease' --env --output exec/chatbot --target aarch64-apple-darwin main.ts",
+    "compile:window": "deno compile -R -W --allow-env --allow-sys='osRelease' --env --output exec/chatbot-window --target x86_64-pc-windows-msvc main.ts"
   },
   "imports": {
     "@2toad/profanity": "npm:@2toad/profanity@^3.0.1",
     "@std/assert": "jsr:@std/assert@1",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
-    "fuse.js": "npm:fuse.js@^7.0.0"
+    "fuse.js": "npm:fuse.js@^7.0.0",
+    "natural": "npm:natural@^8.0.1"
   }
 }

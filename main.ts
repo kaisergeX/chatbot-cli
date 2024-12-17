@@ -1,5 +1,5 @@
 import { ENGINE } from "./constants.ts";
-import { processCommand, sanitizedContent } from "./engine.ts";
+import { processCommand, sanitizedContent } from "./core/engine.ts";
 import { logging, printHelp } from "./utils.ts";
 
 function greeting() {
