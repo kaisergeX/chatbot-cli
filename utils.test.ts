@@ -2,7 +2,6 @@ import { assertEquals } from "@std/assert";
 import { getRandomUserId, logging } from "./utils.ts";
 
 Deno.test("[utils] logging function should write correct log message", () => {
-  // Arrange
   const userId = getRandomUserId();
   const message = "Hello",
     botResponse = message;

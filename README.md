@@ -13,10 +13,10 @@ Deno</sup>
 
 </div>
 
-## Don't wanna setup anything?
+<!-- ## Don't wanna setup anything?
 
 If you use MacOS (ARM64), run the pre-compiled standalone executable file inside
-[exec folder](./exec/).
+[exec folder](./exec/). -->
 
 ## Development
 

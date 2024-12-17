@@ -132,4 +132,6 @@ dist
 .DS_Store
 DS_Store
 
+exec
+exec/*
 chatbot_log.txt
