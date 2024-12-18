@@ -15,7 +15,7 @@ profanity.addWords(RESTRICTED_WORDS);
 // Create a new Fuse instance with the restricted words
 const fuse = new Fuse(RESTRICTED_WORDS, {
   minMatchCharLength: 2,
-  /** A threshold of `0.0` requires a perfect match, `1.0` would match anything. */
+  /** A threshold of `0.0` requires a perfect match, `1.0` would match anything. Higher values are more strict. */
   threshold: 0.3,
 });
 
@@ -99,6 +99,6 @@ export function processCommand(userId: string, command: string): boolean {
   return true;
 }
 
-export function isRateLimited(): boolean {
-  return false;
-}
+// export function isRateLimited(): boolean {
+//   return false;
+// }

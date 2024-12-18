@@ -2,6 +2,7 @@
   "tasks": {
     "dev": "deno run -R -W --allow-env --allow-sys='osRelease' main.ts",
     "test": "deno test -R --allow-env",
+    "test:cov": "deno test --coverage -R --allow-env && deno coverage ./coverage",
     "compile": "deno compile -R -W --allow-env --allow-sys='osRelease' --env --output exec/chatbot --target aarch64-apple-darwin main.ts",
     "compile:window": "deno compile -R -W --allow-env --allow-sys='osRelease' --env --output exec/chatbot-window --target x86_64-pc-windows-msvc main.ts"
   },
