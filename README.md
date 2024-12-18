@@ -84,6 +84,12 @@ OR
 deno test -R --allow-env
 ```
 
+Coverage
+
+```console
+deno run test:cov
+```
+
 ## Compile standalone executables
 
 ```console
@@ -121,7 +127,7 @@ deno run compile:window
 
 `@tensorflow-models/toxicity`
 
-*Read more*: [tensorflow's hate_speech_offensive catalog](https://www.tensorflow.org/datasets/community_catalog/huggingface/hate_speech_offensive), and Huggingface datasets.
+_Read more_: [tensorflow's hate_speech_offensive catalog](https://www.tensorflow.org/datasets/community_catalog/huggingface/hate_speech_offensive), and Huggingface datasets.
 
 **Pros**: Can train and customize our own models. No API calls are required, reduces latency.
 

@@ -24,10 +24,11 @@ export function logging({
   userId,
   message,
   botResponse,
-  timestamp = new Date().toISOString(),
+  timestamp,
 }: Logging) {
+  const logTimestamp = timestamp || new Date().toISOString();
   const logMessage =
-    `[${timestamp}] ${userId}: ${message}\n[${timestamp}] Bot: ${botResponse}\n`;
+    `[${logTimestamp}] ${userId}: ${message}\n[${logTimestamp}] Bot: ${botResponse}\n`;
   Deno.writeTextFileSync(LOG_FILE, logMessage, { append: true });
 }
 

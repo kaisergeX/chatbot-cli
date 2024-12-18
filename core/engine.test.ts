@@ -67,3 +67,41 @@ Deno.test("[engine] processCommand should handle clear command", () => {
 
   console.clear = originalClear;
 });
+
+Deno.test("[engine] processCommand should handle help command", () => {
+  let helpCalled = false;
+  const originalPrintHelp = console.log;
+  console.log = () => {
+    helpCalled = true;
+  };
+
+  const result = processCommand("user-1", "help");
+  assertEquals(helpCalled, true);
+  assertEquals(result, true);
+
+  console.log = originalPrintHelp;
+});
+
+Deno.test("[engine] processCommand should handle strict-mode command", () => {
+  const userId = "user-1";
+  const command = "strict-mode";
+  const originalConfirm = globalThis.confirm;
+
+  let confirmCalled = false;
+  globalThis.confirm = () => {
+    confirmCalled = true;
+    return true;
+  };
+
+  ENGINE.STRICT_MODE = false;
+  processCommand(userId, command);
+  assertEquals(ENGINE.STRICT_MODE, true);
+
+  ENGINE.STRICT_MODE = true;
+  processCommand(userId, command);
+  assertEquals(confirmCalled, true);
+  assertEquals(ENGINE.STRICT_MODE, false);
+
+  // Restore original functions
+  globalThis.confirm = originalConfirm;
+});
