@@ -11,7 +11,7 @@ type EngineConfig = {
     ENABLED: boolean;
     /**
      * The maximum score for a sentiment that is considered negative.
-     * @default -0.5
+     * @default -0.5 // AFINN lexicon (range: -5 to 5)
      */
     MAX_NEGATIVE_SCORE: number;
     LEXICON: AfinnLanguageType; // consider support SenticonLanguageType for more nuanced results
